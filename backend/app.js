@@ -13,24 +13,26 @@ const allowedOrigins = (process.env.FRONTEND_URL || "")
 
 app.use(cors({
   origin(origin, callback) {
-    let isVercelOrigin = false;
-    if (origin) {
-      try {
-        const hostname = new URL(origin).hostname;
-        isVercelOrigin =
-          /\.vercel\.app$/.test(hostname) ||
-          hostname === "localhost" ||
-          hostname === "127.0.0.1";
-      } catch {
-        isVercelOrigin = false;
-      }
-    }
-
-    if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin) || isVercelOrigin) {
+    if (!origin) {
       callback(null, true);
       return;
     }
-    callback(new Error("Origin is not allowed by CORS"));
+
+    let hostname = "";
+    try {
+      hostname = new URL(origin).hostname;
+    } catch {
+      callback(new Error("Invalid request origin"));
+      return;
+    }
+
+    const isAllowed =
+      allowedOrigins.includes(origin) ||
+      /\.vercel\.app$/.test(hostname) ||
+      hostname === "localhost" ||
+      hostname === "127.0.0.1";
+
+    callback(isAllowed ? null : new Error("Origin is not allowed by CORS"), isAllowed);
   },
   credentials: false,
 }));
