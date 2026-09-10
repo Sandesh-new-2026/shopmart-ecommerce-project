@@ -1,0 +1,3 @@
+◇ injected env (3) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Backend running on http://localhost:5000
+MongoDB connected
