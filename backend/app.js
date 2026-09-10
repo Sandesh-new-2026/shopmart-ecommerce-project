@@ -12,8 +12,23 @@ const allowedOrigins = (process.env.FRONTEND_URL || "")
   .filter(Boolean);
 
 app.use(cors({
-  origin: allowedOrigins.length ? allowedOrigins : true,
-  credentials: true,
+  origin(origin, callback) {
+    let isVercelOrigin = false;
+    if (origin) {
+      try {
+        isVercelOrigin = /\.vercel\.app$/.test(new URL(origin).hostname);
+      } catch {
+        isVercelOrigin = false;
+      }
+    }
+
+    if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin) || isVercelOrigin) {
+      callback(null, true);
+      return;
+    }
+    callback(new Error("Origin is not allowed by CORS"));
+  },
+  credentials: false,
 }));
 app.use(express.json());
 
@@ -24,6 +39,10 @@ const reviewRoutes = require("./routes/reviewRoutes");
 const addressRoutes = require("./routes/addressRoutes");
 
 let databaseConnection;
+app.get("/health", (req, res) => {
+  res.json({ success: true, service: "shopmart-api" });
+});
+
 app.use(async (req, res, next) => {
   try {
     if (!databaseConnection) databaseConnection = connectDB();
