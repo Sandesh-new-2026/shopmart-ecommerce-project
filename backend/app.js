@@ -16,7 +16,11 @@ app.use(cors({
     let isVercelOrigin = false;
     if (origin) {
       try {
-        isVercelOrigin = /\.vercel\.app$/.test(new URL(origin).hostname);
+        const hostname = new URL(origin).hostname;
+        isVercelOrigin =
+          /\.vercel\.app$/.test(hostname) ||
+          hostname === "localhost" ||
+          hostname === "127.0.0.1";
       } catch {
         isVercelOrigin = false;
       }
