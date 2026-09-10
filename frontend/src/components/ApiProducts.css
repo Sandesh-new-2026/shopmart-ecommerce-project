@@ -1,0 +1,89 @@
+.api-products-section {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 70px 25px;
+}
+
+.api-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.api-label {
+  color: #7c3aed;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.api-heading h2 {
+  margin: 10px 0;
+  font-size: 36px;
+  color: #0f172a;
+}
+
+.api-heading > p:last-child {
+  color: #64748b;
+}
+
+.api-product-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.api-product-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.api-product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px
+    rgba(15, 23, 42, 0.12);
+}
+
+.api-image-box {
+  height: 230px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.api-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.api-product-content {
+  padding: 18px;
+}
+
+.api-category {
+  margin: 0;
+  color: #7c3aed;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.api-product-content h3 {
+  color: #1e293b;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 50px;
+  overflow: hidden;
+}
+
+.api-price {
+  color: #16a34a;
+  font-size: 20px;
+  font-weight: 800;
+}
