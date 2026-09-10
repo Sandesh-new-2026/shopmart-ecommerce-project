@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const configuredApiUrl =
+  import.meta.env.VITE_API_URL ||
+  "https://shopmart-backend-ifz0dzxny-sandesh-react-projects.vercel.app";
+const apiRoot = configuredApiUrl.replace(/\/+$/, "").replace(/\/api$/, "");
 const api = axios.create({
-  baseURL: `${import.meta.env.VITE_API_URL || "https://shopmart-ecommerce-backend-5rw1i4nr7-sandesh-react-projects.vercel.app/"}/api`,
+  baseURL: `${apiRoot}/api`,
 });
 
 api.interceptors.request.use((config) => {
