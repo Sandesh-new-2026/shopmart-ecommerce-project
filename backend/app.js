@@ -6,34 +6,9 @@ const connectDB = require("./config/db");
 dotenv.config();
 
 const app = express();
-const allowedOrigins = (process.env.FRONTEND_URL || "")
-  .split(",")
-  .map((origin) => origin.trim())
-  .filter(Boolean);
 
 app.use(cors({
-  origin(origin, callback) {
-    if (!origin) {
-      callback(null, true);
-      return;
-    }
-
-    let hostname = "";
-    try {
-      hostname = new URL(origin).hostname;
-    } catch {
-      callback(new Error("Invalid request origin"));
-      return;
-    }
-
-    const isAllowed =
-      allowedOrigins.includes(origin) ||
-      /\.vercel\.app$/.test(hostname) ||
-      hostname === "localhost" ||
-      hostname === "127.0.0.1";
-
-    callback(isAllowed ? null : new Error("Origin is not allowed by CORS"), isAllowed);
-  },
+  origin: true,
   credentials: false,
 }));
 app.use(express.json());
