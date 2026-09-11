@@ -77,7 +77,12 @@ function Navbar({
 
       {/* SEARCH */}
       <form className="navbar-search" onSubmit={(event) => { event.preventDefault(); onSearchSubmit(search); }}>
-        <span className="search-icon" aria-hidden="true">⌕</span>
+        <span className="search-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="m16 16 4.5 4.5" />
+          </svg>
+        </span>
 
         <input
           type="text"
@@ -108,6 +113,9 @@ function Navbar({
             <Link to="/edit-profile" className="nav-user-name" title={displayName}>
               <span className="nav-greeting">Hi, </span>{displayName}
             </Link>
+            <Link to="/edit-profile" className="nav-profile-link">
+              Profile
+            </Link>
             <button
               type="button"
               className="nav-logout"
@@ -122,9 +130,6 @@ function Navbar({
             <Link to="/register" className="nav-register">Register</Link>
           </>
         )}
-        {!user && <Link to="/edit-profile" className="nav-profile-link">Profile</Link>}
-    
-
         {/* CART */}
         <button
           type="button"
