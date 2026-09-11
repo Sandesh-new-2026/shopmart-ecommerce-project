@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import api from "../services/api";
 import "./OrderDetails.css";
+import BagLoader from "../components/BagLoader";
 
 function OrderDetails() {
   const { id } = useParams();
@@ -22,7 +23,7 @@ function OrderDetails() {
     });
   }, [id, location.state]);
 
-  if (!order) return <main className="order-details-page"><Link to="/orders">← My Orders</Link><p>{error || "Loading order..."}</p></main>;
+  if (!order) return <main className="order-details-page"><Link to="/orders">← My Orders</Link><BagLoader label={error || "Loading order..."} /></main>;
 
   return (
     <main className="order-details-page">
