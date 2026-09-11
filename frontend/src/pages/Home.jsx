@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import FilterDrawer from "../components/FilterDrawer";
 import BackToTopButton from "../components/BackToTopButton";
 import Chatbot from "../components/Chatbot";
+import BagLoader from "../components/BagLoader";
 import { addCartItem, readCart, saveCart } from "../utils/cart";
 
 import "../App.css";
@@ -282,11 +283,7 @@ const filteredProducts = useMemo(() => {
           {/* LOADING */}
           {loading && (
             <div className="products-loading">
-              <div className="loading-spinner"></div>
-
-              <h3>Loading products...</h3>
-
-              <p>Please wait while we fetch the latest products.</p>
+              <BagLoader label="Loading your collection..." />
             </div>
           )}
 
