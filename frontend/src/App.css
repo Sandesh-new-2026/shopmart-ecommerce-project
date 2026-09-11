@@ -199,7 +199,7 @@ body {
   }
   .navbar.navbar .navbar-search input {
     min-height: 42px !important;
-    padding-right: 92px !important;
+    padding: 0 42px 0 14px !important;
     border: 1px solid #cbd5e1 !important;
     border-radius: 10px !important;
     background: #f8fafc !important;
@@ -1960,7 +1960,8 @@ body {
 .navbar.navbar { display:flex !important; align-items:center !important; gap:12px !important; min-height:72px !important; padding:10px clamp(12px,3vw,36px) !important; background:#fff !important; border-bottom:1px solid #e5eaf0 !important; box-shadow:0 5px 18px rgba(15,23,42,.08) !important; }
 .navbar.navbar .navbar-logo { display:inline-flex !important; align-items:center !important; gap:8px !important; color:#06245c !important; font-size:19px !important; font-weight:900 !important; }
 .navbar.navbar .navbar-search { flex:1 1 360px !important; max-width:620px !important; min-width:180px !important; margin:0 auto !important; }
-.navbar.navbar .navbar-search input { min-height:42px !important; padding-right:38px !important; border:1px solid #cbd5e1 !important; border-radius:10px !important; background:#f8fafc !important; color:#172033 !important; box-sizing:border-box !important; }
+.navbar.navbar .navbar-search input { min-height:42px !important; padding:0 42px 0 14px !important; border:1px solid #cbd5e1 !important; border-radius:10px !important; background:#f8fafc !important; color:#172033 !important; box-sizing:border-box !important; }
+.navbar.navbar .search-icon { right:14px !important; left:auto !important; top:50% !important; width:18px !important; height:18px !important; color:#64748b !important; transform:translateY(-50%) !important; }
 .navbar.navbar .navbar-actions { display:flex !important; align-items:center !important; gap:8px !important; margin-left:auto !important; flex:0 0 auto !important; }
 .navbar.navbar .nav-user { display:flex !important; align-items:center !important; gap:7px !important; max-width:240px !important; }
 .navbar.navbar .nav-user-name { display:inline-block !important; max-width:130px !important; color:#172033 !important; font-size:13px !important; font-weight:800 !important; }
@@ -1968,7 +1969,7 @@ body {
 .navbar.navbar .nav-login { color:#2563eb !important; }
 .navbar.navbar .nav-register { background:#2563eb !important; color:#fff !important; }
 .navbar.navbar .nav-profile-link,.navbar.navbar .nav-logout { border:1px solid #cbd5e1 !important; background:#fff !important; color:#334155 !important; }
-.navbar.navbar .search-clear { right:86px !important; color:#64748b !important; z-index:2 !important; }
+.navbar.navbar .search-clear { right:38px !important; color:#64748b !important; z-index:2 !important; }
 .wishlist-toast { position: fixed; top: 84px; right: 20px; z-index: 140; padding: 12px 16px; border-radius: 10px; background: #138a43; color: #fff; font-size: 13px; font-weight: 800; box-shadow: 0 8px 24px rgba(15,23,42,.2); }
 @media (max-width:820px) {
   .navbar.navbar { flex-wrap:wrap !important; }
