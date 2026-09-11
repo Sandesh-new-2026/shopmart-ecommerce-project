@@ -4,6 +4,7 @@ import api from "../services/api";
 import "./ProductDetails.css";
 import Navbar from "../components/Navbar";
 import { addCartItem, readCart } from "../utils/cart";
+import BagLoader from "../components/BagLoader";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -62,7 +63,7 @@ function ProductDetails() {
     }
   };
 
-  if (!product) return <main className="details-page"><p>{message || "Loading product..."}</p></main>;
+  if (!product) return <main className="details-page"><BagLoader label={message || "Loading product..."} /></main>;
 
   return (
     <>
